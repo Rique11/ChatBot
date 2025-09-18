@@ -57,7 +57,7 @@ Este projeto tem como objetivo criar um **chatbot no WhatsApp**, utilizando a **
 
 ## Fluxo Técnico
 
-```mermaid
+```
 flowchart TD
     A[Aluno no WhatsApp] --> B[WhatsApp Business API]
     B --> C[Servidor Backend (Node.js)]
