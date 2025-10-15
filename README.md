@@ -16,8 +16,46 @@ Este projeto tem como objetivo criar um **chatbot no WhatsApp**, utilizando a **
 
 ### 1. Conta WhatsApp Business API
 - Criar e configurar número comercial no **Meta Business Manager**.  
-- Habilitar a **Cloud API** ou **On-Premise API**.  
-- Criar **Message Templates** (mensagens proativas de boas-vindas ou avisos).  
+- Habilitar a **Cloud API** 
+- Criar **Message Templates** (mensagens proativas de boas-vindas ou avisos) (Não Obrigatorio).  
+
+#### Criando conta no Wpp Business
+- Acessar https://developers.facebook.com/
+- Criar conta de desenvolvedor 
+- Criar App do WhatsApp Bussiness 
+- Gerar Token de API 
+
+##### Configurando números 
+
+- Na dashboard do Wpp Bussiness inserir o numero para enviar e mensagem Hello Word (Apenas assim o numero +55 sera liberado para receber msg do número de teste)
+
+##### Configurando Webhook 
+```js
+app.get("/webhook", (req, res) => {
+  const mode = req.query["hub.mode"];
+  const token = req.query["hub.verify_token"];
+  const challenge = req.query["hub.challenge"];
+  logger.debug(`Recebido GET /webhook com mode: ${mode}, token: ${token}, challenge: ${challenge}`);
+  logger.debug(`VERIFY_TOKEN esperado: ${VERIFY_TOKEN}`);
+  if (mode && token) {
+    if (mode === "subscribe" && token === VERIFY_TOKEN) {
+      logger.info("WEBHOOK VALIDADO COM SUCESSO!");
+      res.status(200).send(challenge);
+    } else {
+      logger.warn("TOKEN INVÁLIDO"); 
+      res.sendStatus(403);
+    }
+  } else {
+    res.sendStatus(400);
+  }
+});
+```
+- O Webhook Get será o que vai configurar e estabelecer a comunicação com o Wpp, esse VERIFY_TOKEN é uma chave criada que deve estar no env e deve ser inserida na hora de colocar a URL do webhook na dashboard do Wpp Bussiness
+
+```js
+app.post("/webhook", escutaMensagem);
+```
+- A rota webhook Post é a que recebe as mensagens que são enviadas ao número de teste (ou Cadastrado oficial) e que faz a analise para ver qual a resposta que se encaixa ao contexto. 
 
 ### 2. Backend (Servidor de Aplicação)
 - Desenvolvido em **Node.js (Express ou NestJS)**.  
