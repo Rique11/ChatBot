@@ -112,7 +112,7 @@ Banco de Dados   Chatbot: Respostas Automáticas
 
 ## Implementado
 
-### 1. Conta + Telefone de teste da Meta criados
+1. Conta + Telefone de teste da Meta criados
 
 ### 2. Webhooks configurados rodando em maquina local (ngrok)
 
