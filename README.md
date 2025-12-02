@@ -114,23 +114,23 @@ Banco de Dados   Chatbot: Respostas Automáticas
 
 1. Conta + Telefone de teste da Meta criados
 
-### 2. Webhooks configurados rodando em maquina local (ngrok)
+2. Webhooks configurados rodando em maquina local (ngrok)
 
-### 3. Fluxo de mensagens + respostas baseadas na interação do usuario
+3. Fluxo de mensagens + respostas baseadas na interação do usuario
 
-### 4. Controle de middleware com chaves aleatorias e configuradas na dashboard da Meta API
+4. Controle de middleware com chaves aleatorias e configuradas na dashboard da Meta API
 
-### 5. Feature de logs personalizados e com controle com variavel de ambiente (TESTE_MODE) 
+5. Feature de logs personalizados e com controle com variavel de ambiente (TESTE_MODE) 
 
 ##  Proximos passos 
 
-### Criar Dockerfile para conseguir compor 3 diferentes numeros 
+ - Criar Dockerfile para conseguir compor 3 diferentes numeros 
 
-### Conteudo melhor de mensagens com informações a serem passadas pela direção 
+ - Conteudo melhor de mensagens com informações a serem passadas pela direção 
 
-### Controle de respostas duplicadas por chamadas atrasadas no servidor
+ - Controle de respostas duplicadas por chamadas atrasadas no servidor
 
-### Testar em ambiente de produção, como rerender, vercel, etc. 
+ - Testar em ambiente de produção, como rerender, vercel, etc. 
 
 
 
